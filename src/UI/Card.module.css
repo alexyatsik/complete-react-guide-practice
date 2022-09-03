@@ -1,0 +1,17 @@
+.card {
+    background-color: rgba(0,0,0, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 auto 10px;
+    color: azure;
+    width: 50%;
+}
+
+.card:first-child {
+    margin: 10px auto;
+}
+
+.card:last-child {
+    margin: 0 auto;
+}
