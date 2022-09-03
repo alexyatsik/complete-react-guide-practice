@@ -1,9 +1,12 @@
-import './App.css';
+import styles from './App.module.css';
+import { AddUser } from "./AddUser/AddUser";
+import { UsersList } from "./UsersList/UsersList";
 
 function App() {
   return (
     <div>
-      <h1>Hello, World!</h1>
+      <AddUser />
+      <UsersList />
     </div>
   );
 }
