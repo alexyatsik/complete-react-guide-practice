@@ -3,7 +3,6 @@ import {Card} from "../UI/Card";
 
 import styles from './AddUser.module.css';
 
-
 function AddUser(props) {
   const [userNameInput, setUserNameInput] = useState('');
   const [ageInput, setAgeInput] = useState('');
@@ -16,6 +15,11 @@ function AddUser(props) {
     setAgeInput(event.target.value);
   }
 
+  const clearInputFields = () => {
+    setAgeInput('');
+    setUserNameInput('');
+  }
+
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
@@ -26,9 +30,7 @@ function AddUser(props) {
     }
 
     props.onAddUser(addedUserData);
-
-    setAgeInput('');
-    setUserNameInput('');
+    clearInputFields();
   }
 
   return (
@@ -41,7 +43,7 @@ function AddUser(props) {
           </div>
           <div className={styles['input-block']}>
             <label>Age:</label>
-            <input type="number" min="1" max="150" step="1" value={ageInput} onChange={onChangeAgeHandler} />
+            <input type="number" value={ageInput} onChange={onChangeAgeHandler} />
           </div>
         </div>
         <button type="submit">Add user</button>

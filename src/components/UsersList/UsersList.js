@@ -5,7 +5,7 @@ import styles from './UsersList.module.css';
 
 function UsersList(props) {
     if (props.usersCatalogue.length === 0) {
-        return <ul />;
+        return;
     }
 
     return (

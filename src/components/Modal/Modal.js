@@ -2,11 +2,14 @@ import {Card} from "../UI/Card";
 
 import styles from './Modal.module.css';
 
-function Modal() {
+function Modal(props) {
   return (
-    <Card>
-      <h1>Modal window component</h1>
-    </Card>
+
+        <div className={`${styles.modal} ${props.isValidInput ? styles.hidden : ''}`}>
+            <Card>
+                <span>Modal error</span>
+            </Card>
+        </div>
   );
 }
 
