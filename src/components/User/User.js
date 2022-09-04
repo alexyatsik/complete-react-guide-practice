@@ -4,7 +4,7 @@ import styles from './User.module.css';
 
 function User(props) {
     return (
-        <li>
+        <li data-id={props.id}>
             <Card>
                 <div className={styles.user}>
                     <span>Name: {props.name}</span>

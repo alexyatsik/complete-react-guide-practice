@@ -10,9 +10,10 @@ function UsersList(props) {
 
     return (
         <Card>
-          <ul className={styles.list}>
+          <ul className={styles.list} onClick={props.onClickListHandler}>
               {props.usersCatalogue.map(user =>
                   <User
+                      id={user.id}
                       key={user.id}
                       name={user.name}
                       age={user.age}

@@ -13,10 +13,18 @@ function App() {
         });
     };
 
+    const onClickListHandler = (event) => {
+        const clickedItemId = event.target.closest('li').getAttribute('data-id');
+        const filteredCatalogue = usersCatalogue.filter(user => {
+           return parseFloat(user.id) !== parseFloat(clickedItemId);
+        });
+        setUsersCatalogue(filteredCatalogue);
+    }
+
     return (
         <div className={styles.app}>
             <AddUser onAddUser={onAddUserHandler} />
-            <UsersList usersCatalogue={usersCatalogue}/>
+            <UsersList usersCatalogue={usersCatalogue} onClickListHandler={onClickListHandler} />
         </div>
     );
 }
