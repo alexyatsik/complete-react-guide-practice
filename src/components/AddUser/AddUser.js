@@ -4,7 +4,7 @@ import {Card} from "../UI/Card";
 import styles from './AddUser.module.css';
 
 
-function AddUser() {
+function AddUser(props) {
   const [userNameInput, setUserNameInput] = useState('');
   const [ageInput, setAgeInput] = useState('');
 
@@ -19,15 +19,15 @@ function AddUser() {
   const onSubmitHandler = (event) => {
     event.preventDefault();
 
-    const newUser = {
+    const addedUserData = {
       name: userNameInput,
       age: ageInput
     }
 
+    props.onAddUser(addedUserData);
+
     setAgeInput('');
     setUserNameInput('');
-
-    console.log(newUser);
   }
 
   return (
