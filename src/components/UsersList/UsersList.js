@@ -1,11 +1,19 @@
+import {User} from '../User/User';
 import {Card} from "../UI/Card";
 
-import styles from './UsersList.modules.css';
+import styles from './UsersList.module.css';
 
-function UsersList() {
+function UsersList(props) {
   return (
     <Card>
-      <h1>UsersList component</h1>
+      <ul className={styles.list}>
+          {props.usersCatalogue.map(user =>
+              <User
+                name={user.name}
+                age={user.age}
+              />
+          )}
+      </ul>
     </Card>
   );
 }

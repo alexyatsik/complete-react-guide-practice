@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { AddUser } from "./components/AddUser/AddUser";
 import { UsersList } from "./components/UsersList/UsersList";
 
+import styles from './App.module.css';
+
 function App() {
     const [usersCatalogue, setUsersCatalogue] = useState([]);
 
@@ -11,12 +13,12 @@ function App() {
         });
     };
 
-  return (
-    <div>
-      <AddUser onAddUser={onAddUserHandler} />
-      <UsersList usersCatalogue={usersCatalogue}/>
-    </div>
-  );
+    return (
+        <div className={styles.app}>
+            <AddUser onAddUser={onAddUserHandler} />
+            <UsersList usersCatalogue={usersCatalogue}/>
+        </div>
+    );
 }
 
 export default App;
