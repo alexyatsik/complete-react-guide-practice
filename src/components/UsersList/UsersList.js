@@ -13,8 +13,9 @@ function UsersList(props) {
           <ul className={styles.list}>
               {props.usersCatalogue.map(user =>
                   <User
-                    name={user.name}
-                    age={user.age}
+                      key={user.id}
+                      name={user.name}
+                      age={user.age}
                   />
               )}
           </ul>

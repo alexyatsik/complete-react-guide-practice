@@ -20,6 +20,7 @@ function AddUser(props) {
     event.preventDefault();
 
     const addedUserData = {
+      id: Math.random(),
       name: userNameInput,
       age: ageInput
     }
