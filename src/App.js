@@ -1,6 +1,6 @@
 import styles from './App.module.css';
-import { AddUser } from "./AddUser/AddUser";
-import { UsersList } from "./UsersList/UsersList";
+import { AddUser } from "./components/AddUser/AddUser";
+import { UsersList } from "./components/UsersList/UsersList";
 
 function App() {
   return (
