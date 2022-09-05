@@ -29,7 +29,13 @@ function AddUser(props) {
       age: ageInput
     }
 
-    if (parseInt(addedUserData.age) <= 0) {
+    if (parseInt(addedUserData.age) <= 0 || parseInt(addedUserData.age) > 150) {
+      props.errorCode(1);
+      props.showModal(true);
+      clearInputFields();
+      return;
+    } else if (addedUserData.age.trim() === '' || addedUserData.name.trim() === '') {
+      props.errorCode(2);
       props.showModal(true);
       clearInputFields();
       return;

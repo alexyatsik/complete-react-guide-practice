@@ -8,6 +8,7 @@ import styles from './App.module.css';
 function App() {
     const [usersCatalogue, setUsersCatalogue] = useState([]);
     const [modalVisibility, setModalVisibility] = useState(false);
+    const [errorCode, setErrorCode] = useState('Not defined');
 
     const showModalHandler = (state) => {
       setModalVisibility(state);
@@ -19,6 +20,10 @@ function App() {
         });
     };
 
+    const errorCodeGetter = (code) => {
+        setErrorCode(code);
+    }
+
     const onClickListHandler = (event) => {
         const clickedItemId = event.target.closest('li').getAttribute('data-id');
         const filteredCatalogue = usersCatalogue.filter(user => {
@@ -29,9 +34,9 @@ function App() {
 
     return (
         <div className={styles.app}>
-            <AddUser onAddUser={onAddUserHandler} showModal={showModalHandler}/>
-            <UsersList usersCatalogue={usersCatalogue} onClickListHandler={onClickListHandler} />
-            <Modal visibility={modalVisibility} />
+            <AddUser onAddUser={onAddUserHandler} showModal={showModalHandler} errorCode={errorCodeGetter}/>
+            <UsersList usersCatalogue={usersCatalogue} onClickListHandler={onClickListHandler} errorCode={errorCodeGetter}/>
+            <Modal visibility={modalVisibility} showModalHandler={showModalHandler} errorCode={errorCode}/>
         </div>
     );
 }
