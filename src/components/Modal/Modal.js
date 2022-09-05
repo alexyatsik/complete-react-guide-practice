@@ -5,11 +5,12 @@ import styles from './Modal.module.css';
 function Modal(props) {
   return (
 
-        <div className={`${styles.modal} ${props.isValidInput ? styles.hidden : ''}`}>
+        <div className={`${styles.modal} ${!props.visibility ? styles.hidden : ''}`}>
             <Card>
-                <span>Modal error</span>
+                <span className={styles.message}>Modal error</span>
             </Card>
         </div>
+
   );
 }
 

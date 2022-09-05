@@ -1,11 +1,17 @@
 import { useState } from 'react';
 import { AddUser } from "./components/AddUser/AddUser";
 import { UsersList } from "./components/UsersList/UsersList";
+import { Modal } from "./components/Modal/Modal";
 
 import styles from './App.module.css';
 
 function App() {
     const [usersCatalogue, setUsersCatalogue] = useState([]);
+    const [modalVisibility, setModalVisibility] = useState(false);
+
+    const showModalHandler = (state) => {
+      setModalVisibility(state);
+    }
 
     const onAddUserHandler = (userData) => {
         setUsersCatalogue(prevState => {
@@ -23,8 +29,9 @@ function App() {
 
     return (
         <div className={styles.app}>
-            <AddUser onAddUser={onAddUserHandler} />
+            <AddUser onAddUser={onAddUserHandler} showModal={showModalHandler}/>
             <UsersList usersCatalogue={usersCatalogue} onClickListHandler={onClickListHandler} />
+            <Modal visibility={modalVisibility} />
         </div>
     );
 }
