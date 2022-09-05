@@ -6,6 +6,7 @@ import styles from './AddUser.module.css';
 function AddUser(props) {
   const [userNameInput, setUserNameInput] = useState('');
   const [ageInput, setAgeInput] = useState('');
+  const [isInputValid, setIsInputValid] = useState(false);
 
   const onChangeUsernameHandler = (event) => {
     setUserNameInput(event.target.value);
@@ -29,7 +30,17 @@ function AddUser(props) {
       age: ageInput
     }
 
-    props.onAddUser(addedUserData);
+    parseInt(addedUserData.age) <= 0
+      ? setIsInputValid(false)
+      : setIsInputValid(true);
+
+
+    if (!isInputValid) {
+      console.log('trigger error modal');
+    } else {
+      props.onAddUser(addedUserData);
+    }
+
     clearInputFields();
   }
 
